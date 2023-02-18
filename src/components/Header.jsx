@@ -1,6 +1,19 @@
 import React from "react";
 
 const Header = ({ handle_Submit }) => {
+  const coinOptions = [
+    { value: "bitcoin", label: "Bitcoin (BTC)" },
+    { value: "ethereum", label: "Ethereum (ETH)" },
+    { value: "cardano", label: "Cardano (ADA)" },
+    { value: "binancecoin", label: "Binance (BNB)" },
+    { value: "ripple", label: "Ripple (XRP)" },
+    { value: "dogecoin", label: "Dogecoin (DOGE)" },
+    { value: "tether", label: "Tether (USDT)" },
+    { value: "avalanche-2", label: "Avalanche (AVAX)" },
+    { value: "decentraland", label: "Decentraland (MANA)" },
+    { value: "solana", label: "Solana (SOL)" },
+  ];
+
   return (
     <div>
       <nav
@@ -15,17 +28,12 @@ const Header = ({ handle_Submit }) => {
             style={{ width: "fit-content" }}
             onChange={handle_Submit}
           >
-            <option value="bitcoin">Select Coin</option>
-            <option value="avalanche-2">Avalanche (AVAX)</option>
-            <option value="binancecoin">Binance (BNB)</option>
-            <option value="bitcoin">Bitcoin (BTC) </option>
-            <option value="cardano">Cardano (ADA)</option>
-            <option value="decentraland">Decentraland (MANA)</option>
-            <option value="dogecoin">Dogecoin (DOGE)</option>
-            <option value="ethereum">Ethereum (ETH)</option>
-            <option value="ripple">Ripple (XRP)</option>
-            <option value="solana">Solana (SOL)</option>
-            <option value="tether">Tether (USDT)</option>
+            <option value="">Select Coin</option>
+            {coinOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
 
           <a
